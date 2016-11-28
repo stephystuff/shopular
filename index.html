@@ -10,8 +10,25 @@
       <h1>Shopular</h1>
     </header>
 
-    <main>
-      
+    <main ng-controller='ItemController as inventory'>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Color</th>
+        </tr>
+
+        <tr ng-repeat='item in inventory.items'>
+          <td>{{ item.name }}</td>
+          <td>{{ (item.price - item.discount) * inventory.tax}}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.color }}</td>
+        </tr>
+
+
+      </table>
+
     </main>
 
 
