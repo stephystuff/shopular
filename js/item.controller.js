@@ -1,7 +1,13 @@
 (function() {
   'use strict';
 
+  angular.module('shopular')
+    .controller('ItemController', ItemController);
+
+
   function ItemController (){
+    this.tax=1.575;
+
     this.items=[
       { "id": 2957, "name": "widget", "price": 32, "quantity": 203, "color": "red", "discount": 31 },
       { "id": 89274, "name": "golf club", "price": 98, "quantity": 10, "color": "black", "discount": 0 },
