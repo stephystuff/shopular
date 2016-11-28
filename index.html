@@ -21,7 +21,8 @@
 
         <tr ng-repeat='item in inventory.items'>
           <td>{{ item.name }}</td>
-          <td>{{ (item.price - item.discount) * inventory.tax}}</td>
+          <td>{{ (item.price - item.discount) * inventory.tax | currency }}
+            <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
           <td>{{ item.quantity }}</td>
           <td>{{ item.color }}</td>
         </tr>
