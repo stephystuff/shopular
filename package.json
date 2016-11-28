@@ -1,0 +1,22 @@
+{
+  "name": "shopular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephystuff/shopular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephystuff/shopular/issues"
+  },
+  "homepage": "https://github.com/stephystuff/shopular#readme",
+  "dependencies": {
+    "angular": "^1.5.9"
+  }
+}
