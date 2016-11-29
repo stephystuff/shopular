@@ -14,20 +14,23 @@
   <main ng-controller='ItemController as inventory'>
 
     <table>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Color</th>
-      </tr>
-
-      <tr ng-repeat='item in inventory.items'>
-        <td>{{ item.name }}</td>
-        <td>{{ inventory.getPrice(item) | currency | number}}
-          <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
-          <td>{{ item.quantity }}</td>
-          <td>{{ item.color }}</td>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Color</th>
         </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='item in inventory.items'>
+          <td>{{ item.name }}</td>
+          <td>{{ inventory.getPrice(item) | currency | number}}
+            <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.color }}</td>
+          </tr>
+        </tbody>
       </table>
 
       <button ng-click='inventory.switchLocale()'>Switch Currency</button>
