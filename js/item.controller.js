@@ -22,6 +22,21 @@
       { "id": 533, "name": "eggs", "price": 5, "quantity": 12, "color": "brown", "discount": 1 },
       { "id": 683, "name": "pillow", "price": 27, "quantity": 10, "color": "black", "discount": 12 }
     ];
+
+    this.uk = false;
+
+    this.switchLocale = function switchLocale(){
+      this.uk = !this.uk;
+    };
+
+    this.getPrice = function getPrice(items){
+      var result = ((items.price - items.discount) * this.tax);
+      console.log('price getter', this.uk, result);
+        if(this.uk === true) {
+          result *= 1.5;
+        }
+        return result;
+    };
   }
 
 }());
