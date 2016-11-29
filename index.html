@@ -19,13 +19,14 @@
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th>Color</th>
+            <th ng-if='!inventory.uk'>Color</th>
+            <th ng-if='inventory.uk'>Colour</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat='item in inventory.items'>
             <td>{{ item.name }}</td>
-            <td>{{ inventory.getPrice(item) | currency }}
+            <td>{{ inventory.getPrice(item) | currency:inventory.currencyFormat }}
               <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
               <td>{{ item.quantity }}</td>
               <td>{{ item.color }}</td>
