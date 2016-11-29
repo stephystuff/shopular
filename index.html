@@ -36,9 +36,10 @@
 
         <button ng-click='inventory.switchLocale()'>Switch Currency</button>
 
-        <form ng-submit='inventory.addNewItem(inventory.newItem)'
+        <form ng-submit='addNewItem.$touched && addNewItem.$valid && inventory.addNewItem(inventory.newItem)'
               name='addItem'
               class='add-item'>
+
           <h2>Add New Item</h2>
           <input
             type='text'
