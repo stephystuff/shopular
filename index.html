@@ -36,32 +36,39 @@
 
         <button ng-click='inventory.switchLocale()'>Switch Currency</button>
 
-        <form>
+        <form ng-submit='inventory.addNewItem(inventory.newItem)'
+              name='addItem'
+              class='add-item'>
           <h2>Add New Item</h2>
           <input
             type='text'
             name='name'
             placeholder='Add Item Name'
+            ng-model='inventory.newItem.name'
             required>
           <input
             type='number' min=1
             name='price'
             placeholder='Add Price'
+            ng-model='inventory.newItem.price'
             required>
           <input
             type='number' min=1
             name='quantity'
             placeholder='Add Quantity'
+            ng-model='inventory.newItem.quantity'
             required>
           <input
             type='text'
             name='color'
             placeholder='Add Color'
+            ng-model='inventory.newItem.color'
             required>
           <input
             type='number' min=1
             name='discount'
             placeholder='Add Discount'
+            ng-model='inventory.newItem.discount'
             required>
 
           <input type='submit'>
@@ -80,5 +87,6 @@
       <script src='node_modules/angular/angular.js'></script>
       <script src='js/shopular.module.js'></script>
       <script src='js/item.controller.js'></script>
+
     </body>
   </html>
