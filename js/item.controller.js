@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('shopular')
-    .controller('ItemController', ItemController);
+  .controller('ItemController', ItemController);
 
 
   function ItemController (){
@@ -32,10 +32,10 @@
     this.getPrice = function getPrice(items){
       var result = ((items.price - items.discount) * this.tax);
       console.log('price getter', this.uk, result);
-        if(this.uk === true) {
-          result *= 1.5;
-        }
-        return result;
+      if(this.uk === true) {
+        result *= 1.5;
+      }
+      return result;
     };
   }
 

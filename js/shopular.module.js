@@ -3,6 +3,4 @@
 
   angular.module('shopular', []);
 
-
-
 }());
