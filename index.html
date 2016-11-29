@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html ng-app='shopular'>
-  <head>
-    <meta charset="utf-8">
-    <title>Shopular</title>
-    <link href='styles.css' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Shopular</title>
+  <link href='styles.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
 
-    <header>
-      <h1>Shopular</h1>
-    </header>
+  <header>
+    <h1>Shopular</h1>
+  </header>
 
-    <main ng-controller='ItemController as inventory'>
+  <main ng-controller='ItemController as inventory'>
 
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Color</th>
-        </tr>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Color</th>
+      </tr>
 
-        <tr ng-repeat='item in inventory.items'>
-          <td>{{ item.name }}</td>
-          <td>{{ inventory.getPrice(item) | currency }}
-            <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
+      <tr ng-repeat='item in inventory.items'>
+        <td>{{ item.name }}</td>
+        <td>{{ inventory.getPrice(item) | currency }}
+          <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
           <td>{{ item.quantity }}</td>
           <td>{{ item.color }}</td>
         </tr>
       </table>
 
       <button ng-click='inventory.switchLocale()'>Switch Currency</button>
-
-
-
     </main>
 
     <footer>
+      <p>&copy; The Shopular Company 2016</p>
     </footer>
 
 
@@ -45,4 +43,4 @@
     <script src='js/shopular.module.js'></script>
     <script src='js/item.controller.js'></script>
   </body>
-</html>
+  </html>
