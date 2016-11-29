@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html ng-app='shopular'>
-<head>
-  <meta charset="utf-8">
-  <title>Shopular</title>
-  <link href='styles.css' rel='stylesheet' type='text/css'>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <title>Shopular</title>
+    <link href='styles.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
 
-  <header>
-    <h1>Shopular</h1>
-  </header>
+    <header>
+      <h1>Shopular</h1>
+    </header>
 
-  <main ng-controller='ItemController as inventory'>
+    <main ng-controller='ItemController as inventory'>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Color</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat='item in inventory.items'>
-          <td>{{ item.name }}</td>
-          <td>{{ inventory.getPrice(item) | currency }}
-            <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
-            <td>{{ item.quantity }}</td>
-            <td>{{ item.color }}</td>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Color</th>
           </tr>
-        </tbody>
-      </table>
+        </thead>
+        <tbody>
+          <tr ng-repeat='item in inventory.items'>
+            <td>{{ item.name }}</td>
+            <td>{{ inventory.getPrice(item) | currency }}
+              <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.color }}</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <button ng-click='inventory.switchLocale()'>Switch Currency</button>
-    </main>
+        <button ng-click='inventory.switchLocale()'>Switch Currency</button>
+      </main>
 
-    <footer>
-      <p>&copy; The Shopular Company 2016</p>
-    </footer>
+      <footer>
+        <p>&copy; The Shopular Company 2016</p>
+      </footer>
 
 
 
-    <script src='node_modules/angular/angular.js'></script>
-    <script src='js/shopular.module.js'></script>
-    <script src='js/item.controller.js'></script>
-  </body>
+      <script src='node_modules/angular/angular.js'></script>
+      <script src='js/shopular.module.js'></script>
+      <script src='js/item.controller.js'></script>
+    </body>
   </html>
