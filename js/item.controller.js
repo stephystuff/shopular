@@ -6,6 +6,7 @@
 
 
   function ItemController (){
+    this.newItem = {};
     this.tax=1.575;
 
     this.items=[
@@ -42,11 +43,22 @@
      */
     this.getPrice = function getPrice(items){
       var startingPrice = ((items.price - items.discount) * this.tax);
-      console.log('price getter', this.uk, startingPrice);
+      // console.log('price getter', this.uk, startingPrice);
       if(this.uk === true) {
         startingPrice *= 1.5;
       }
       return startingPrice;
+    };
+
+    this.addNewItem = function addNewItem(item){
+      console.log('we are in here!', item);
+      this.items.push({
+        name: this.newItem.name,
+        price: this.newItem.price,
+        quantity: this.newItem.quantity,
+        color: this.newItem.color,
+        discount: this.newItem.discount
+      });
     };
   }
 
