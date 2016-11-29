@@ -25,12 +25,12 @@
       <tbody>
         <tr ng-repeat='item in inventory.items'>
           <td>{{ item.name }}</td>
-          <td>{{ inventory.getPrice(item) | currency | number}}
+          <td>{{ inventory.getPrice(item) | currency }}
             <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.color }}</td>
           </tr>
-        </tbody>
+      </tbody>
       </table>
 
       <button ng-click='inventory.switchLocale()'>Switch Currency</button>
