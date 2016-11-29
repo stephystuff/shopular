@@ -8,6 +8,7 @@
   function ItemController (){
     this.newItem = {};
     this.tax=1.575;
+    this.orderBy = 'name';
 
     this.items=[
       { "id": 2957, "name": "widget", "price": 32, "quantity": 203, "color": "red", "discount": 31 },
@@ -48,6 +49,11 @@
         startingPrice *= 1.5;
       }
       return startingPrice;
+    };
+
+    this.changeOrder = function changeOrder(foobar){
+      console.log('hello');
+      this.orderBy = foobar;
     };
 
     this.addNewItem = function addNewItem(item){

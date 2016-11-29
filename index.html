@@ -16,15 +16,15 @@
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th ng-if='!inventory.uk'>Color</th>
-            <th ng-if='inventory.uk'>Colour</th>
+            <th ng-click='inventory.changeOrder("name")'>Name</th>
+            <th ng-click='inventory.changeOrder("price")'>Price</th>
+            <th ng-click='inventory.changeOrder("quantity")'>Quantity</th>
+            <th ng-click='inventory.changeOrder("color")' ng-if='!inventory.uk'>Color</th>
+            <th ng-click='inventory.changeOrder("colour")'ng-if='inventory.uk'>Colour</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat='item in inventory.items'>
+          <tr ng-repeat='item in inventory.items | orderBy: inventory.orderBy'>
             <td>{{ item.name }}</td>
             <td>{{ inventory.getPrice(item) | currency:inventory.currencyFormat }}
               <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
@@ -36,7 +36,7 @@
 
         <button ng-click='inventory.switchLocale()'>Switch Currency</button>
 
-        <form ng-submit='addNewItem.$touched && addNewItem.$valid && inventory.addNewItem(inventory.newItem)'
+        <form ng-submit='inventory.addNewItem(inventory.newItem)&& addNewItem.$touched && addNewItem.$valid'
               name='addItem'
               class='add-item'>
 
