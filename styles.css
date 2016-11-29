@@ -27,4 +27,7 @@ footer {
   font-weight: bold;
   margin-right: 150px; }
 
+.ng-invalid.ng-touched {
+  border: 1px solid red; }
+
 /*# sourceMappingURL=styles.css.map */
