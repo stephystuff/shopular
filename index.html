@@ -35,7 +35,41 @@
         </table>
 
         <button ng-click='inventory.switchLocale()'>Switch Currency</button>
+
+        <form>
+          <h2>Add New Item</h2>
+          <input
+            type='text'
+            name='name'
+            placeholder='Add Item Name'
+            required>
+          <input
+            type='number' min=1
+            name='price'
+            placeholder='Add Price'
+            required>
+          <input
+            type='number' min=1
+            name='quantity'
+            placeholder='Add Quantity'
+            required>
+          <input
+            type='text'
+            name='color'
+            placeholder='Add Color'
+            required>
+          <input
+            type='number' min=1
+            name='discount'
+            placeholder='Add Discount'
+            required>
+
+          <input type='submit'>
+
+        </form>
       </main>
+
+
 
       <footer>
         <p>&copy; The Shopular Company 2016</p>
