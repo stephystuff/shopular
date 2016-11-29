@@ -24,18 +24,29 @@
     ];
 
     this.uk = false;
+    this.currencyFormat = '$';
 
     this.switchLocale = function switchLocale(){
       this.uk = !this.uk;
+      if(this.uk) {
+        this.currencyFormat = 'GBP';
+      } else {
+        this.currencyFormat = '$';
+      }
     };
 
+    /**
+     * Get price of an intem in correct currency
+     * @param  {Object} items Item for sale that you want price of
+     * @return {Number}       The price of the item in correct currency
+     */
     this.getPrice = function getPrice(items){
-      var result = ((items.price - items.discount) * this.tax);
-      console.log('price getter', this.uk, result);
+      var startingPrice = ((items.price - items.discount) * this.tax);
+      console.log('price getter', this.uk, startingPrice);
       if(this.uk === true) {
-        result *= 1.5;
+        startingPrice *= 1.5;
       }
-      return result;
+      return startingPrice;
     };
   }
 
