@@ -45,15 +45,9 @@
     };
 
     this.addNewItem = function addNewItem(item){
-      console.log('we are in here!', item);
-      this.allData.push({
-        name: item.name,
-        price: item.price,
-        quantity: item.quantity,
-        color: item.color,
-        discount: item.discount
-      });
+      storageService.saveNewItem(item);
     };
+    
   }
 
 }());
