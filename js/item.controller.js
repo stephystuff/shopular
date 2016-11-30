@@ -38,10 +38,10 @@
     };
 
     /**
-     * Get price of an intem in correct currency
-     * @param  {Object} items Item for sale that you want price of
-     * @return {Number}       The price of the item in correct currency
-     */
+    * Get price of an intem in correct currency
+    * @param  {Object} items Item for sale that you want price of
+    * @return {Number}       The price of the item in correct currency
+    */
     this.getPrice = function getPrice(items){
       var startingPrice = ((items.price - items.discount) * this.tax);
       // console.log('price getter', this.uk, startingPrice);
