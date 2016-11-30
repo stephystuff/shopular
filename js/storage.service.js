@@ -6,7 +6,7 @@
 
   function StorageService(){
 
-    var items = [
+    var items = angular.fromJson(window.localStorage.getItem('items')) || [
         { "id": 2957, "name": "widget", "price": 32, "quantity": 203, "color": "red", "discount": 31 },
         { "id": 89274, "name": "golf club", "price": 98, "quantity": 10, "color": "black", "discount": 0 },
         { "id": 64, "name": "iPhone", "price": 499, "quantity": 2, "color": "white", "discount": 0 },
@@ -35,11 +35,12 @@
     function saveNewItem(item){
         items.push({
           name: item.name,
-          price: item.price,
-          quantity: item.quantity,
+          price: Number(item.price),
+          quantity: Number(item.quantity),
           color: item.color,
-          discount: item.discount
+          discount: Number(item.discount)
         });
+      localStorage.setItem('items', angular.toJson(items));
     }
 
     function updateAll(items){
