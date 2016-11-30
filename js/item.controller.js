@@ -4,6 +4,7 @@
   angular.module('shopular')
   .controller('ItemController', ItemController);
 
+  ItemController.$inject = [ '$location', 'StorageService' ];
 
   function ItemController (){
     this.newItem = {};
