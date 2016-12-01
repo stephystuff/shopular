@@ -42,10 +42,6 @@
         });
       localStorage.setItem('items', angular.toJson(items));
     }
-
-    function updateAll(items){
-
-    }
   }
 
 
