@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app='shopular'>
+  <head>
+    <meta charset="utf-8">
+    <title>Shopular</title>
+    <link href='styles.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+    <header>
+      <h1>Shopular</h1>
+    </header>
+
+    <main ng-controller='ItemController as inventory'>
+
+      <table>
+        <thead>
+          <tr>
+            <th ng-click='inventory.changeOrder("name")'>Name</th>
+            <th ng-click='inventory.changeOrder("price")'>Price</th>
+            <th ng-click='inventory.changeOrder("quantity")'>Quantity</th>
+            <th ng-click='inventory.changeOrder("color")' ng-if='!inventory.uk'>Color</th>
+            <th ng-click='inventory.changeOrder("colour")'ng-if='inventory.uk'>Colour</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat='item in inventory.allData | orderBy: inventory.orderBy'>
+            <td>{{ item.name }}</td>
+            <td>{{ inventory.getPrice(item) | currency:inventory.currencyFormat }}
+              <img src='icon/sale.png' ng-hide='item.discount === 0'></td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.color }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button ng-click='inventory.switchLocale()'>Switch Currency</button>
+
+        <form novalidate ng-submit='addItem.$valid && inventory.addNewItem(inventory.newItem)'
+        name='addItem'
+        class='add-item'>
+
+        <h2>Add New Item</h2>
+        <input
+        type='text'
+        name='name'
+        placeholder='Add Item Name'
+        ng-model='inventory.newItem.name'
+        required>
+        <input
+        type='number' min=1
+        name='price'
+        placeholder='Add Price'
+        ng-model='inventory.newItem.price'
+        required>
+        <input
+        type='number' min=1
+        name='quantity'
+        placeholder='Add Quantity'
+        ng-model='inventory.newItem.quantity'
+        required>
+        <input
+        type='text'
+        name='color'
+        placeholder='Add Color'
+        ng-model='inventory.newItem.color'
+        required>
+        <input
+        type='number' min=1
+        name='discount'
+        placeholder='Add Discount'
+        ng-model='inventory.newItem.discount'
+        required>
+
+        <input type='submit'>
+
+      </form>
+    </main>
+
+
+
+    <footer>
+      <p>&copy; The Shopular Company 2016</p>
+    </footer>
+
+
+
+    <script src='node_modules/angular/angular.js'></script>
+    <script src='js/shopular.module.js'></script>
+    <script src='js/item.controller.js'></script>
+    <script src='js/storage.service.js'></script>
+
+
+  </body>
+</html>
