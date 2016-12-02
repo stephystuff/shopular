@@ -25,7 +25,7 @@
           }
         },
 
-        registrar: {
+        shopular: {
           options: {
             files: [
               'node_modules/angular/angular.js',
