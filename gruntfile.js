@@ -33,8 +33,8 @@
               'src/js/shopular.module.js',
               'src/js/item.controller.js',
               'src/js/storage.service.js',
-              'test/specs/student.service.spec.js',
-              'test/specs/registrar.controller.spec.js'
+              'test/specs/storage.service.spec.js',
+              'test/specs/item.controller.spec.js'
             ]
           }
         }
