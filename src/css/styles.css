@@ -1,0 +1,33 @@
+header {
+  text-align: center; }
+
+table {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto; }
+
+tr:nth-child(even) {
+  background-color: #c6b1c0; }
+
+tr:nth-child(odd) {
+  background-color: #ffe7fe; }
+
+td {
+  padding: 5px; }
+
+button {
+  background-color: #dddddd;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px;
+  font-weight: bold; }
+
+footer {
+  text-align: right;
+  font-weight: bold;
+  margin-right: 150px; }
+
+.ng-invalid.ng-touched {
+  border: 1px solid red; }
+
+/*# sourceMappingURL=styles.css.map */
