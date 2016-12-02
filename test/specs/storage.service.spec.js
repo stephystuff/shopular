@@ -4,10 +4,22 @@
   var expect = chai.expect;
 
   describe('storage service', function() {
+    var StorageService;
 
-    it('should expect one plus one to equal one', function() {
-      expect(1).to.equal(1);
+    beforeEach(module('shopular'));
+
+    beforeEach(inject(function(_StorageService_) {
+      StorageService = _StorageService_;
+    }));
+
+    it('should be able to get an array of items', function() {
+      var result= StorageService.getAll();
+      expect(result).to.be.an('array');
+      expect(result.length).to.equal(12);
     });
+
+
+
 
 
   });
