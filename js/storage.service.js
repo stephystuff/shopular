@@ -25,7 +25,6 @@
     return {
       getAll : getAll,
       saveNewItem : saveNewItem,
-      updateAll : updateAll
     };
 
     function getAll(){
