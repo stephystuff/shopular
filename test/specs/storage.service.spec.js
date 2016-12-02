@@ -18,6 +18,10 @@
       expect(result.length).to.equal(12);
     });
 
+    it('should be able to save a new item when added to the array', function() {
+
+    });
+
 
 
 
