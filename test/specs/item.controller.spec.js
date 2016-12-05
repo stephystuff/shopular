@@ -34,11 +34,12 @@
       expect(ItemController.allData.length).to.equal(1);
     });
 
+    // Test for service to add a new item...test not working. Says undefined not a constructor function
     // it('should use the service to add a new item', function(){
     //   ItemController.newItem.foo= 'bar';
     //   var theItem = {};
     //   ItemController.addNewItem(theItem);
-    //   // expect(ItemController.newItem.foo).to.be.undefined;
+    //   expect(ItemController.newItem.foo).to.be.undefined;
     //   expect(mockStorageService.add.numTimesCalled).to.equal(1);
     // });
 
@@ -57,6 +58,17 @@
       expect(ItemController.orderBy).to.equal('name');
       ItemController.changeOrder('price');
       expect(ItemController.orderBy).to.equal('price');
+    });
+
+    it('should switch the currency format to uk', function() {
+      ItemController.switchLocale();
+      var currency = ItemController.currencyFormat;
+      expect(currency).to.equal('GBP');
+    });
+
+    it('should display currency in us format', function() {
+      var currency = ItemController.currencyFormat;
+      expect(currency).to.equal('$');
     });
   });
 
