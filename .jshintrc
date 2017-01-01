@@ -87,7 +87,11 @@
     "yui"           : false,    // Yahoo User Interface
 
     // Custom Globals
-    "globals"       : {    "angular"       : true
+    "globals"       : {
+    "angular"       : true,
+    "chai"          : true,
+    "module"        : true,
+    "inject"        : true
                       }          // additional predefined global variables
 
 }
