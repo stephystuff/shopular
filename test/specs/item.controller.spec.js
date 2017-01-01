@@ -44,14 +44,29 @@
     // });
 
     it('should calculate the total price of an item with tax and discount included', function(){
-      var item = ItemController.getPrice({
+      var price = ItemController.getPrice({
         name: 'towel',
         price: 55,
         discount: 10,
         quantity: 30
       });
-      expect(item).to.be.a('number');
+      var correctPrice = ((55 - 10) * ItemController.tax);
+      expect(price).to.be.a('number');
+      expect(price).to.equal(correctPrice);
+      ItemController.uk = true;
+      var newPrice = ItemController.getPrice({
+        name: 'towel',
+        price: 55,
+        discount: 10,
+        quantity: 30
+      });
+      expect(newPrice).to.equal(correctPrice * 1.5);
     });
+
+    // it('should be able to handle empty args to getPrice', function() {
+    //   ItemController.getPrice();
+    //   // what's gonna happen?
+    // });
 
     it('shold sort the order of the data by category', function() {
       ItemController.changeOrder('name');
