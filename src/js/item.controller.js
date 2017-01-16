@@ -6,9 +6,9 @@
 
   ItemController.$inject = [ 'StorageService' ];
 
-  function ItemController (storageService){
+  function ItemController (StorageService){
     this.newItem = {};
-    this.allData = storageService.getAll();
+    this.allData = StorageService.getAll();
 
     this.tax=1.575;
     this.orderBy = 'name';
@@ -45,9 +45,9 @@
     };
 
     this.addNewItem = function addNewItem(item){
-      storageService.saveNewItem(item);
+      StorageService.saveNewItem(item);
     };
-    
+
   }
 
 }());

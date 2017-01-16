@@ -8,7 +8,6 @@
     var mockStorageService = {};
 
     beforeEach(module('shopular'));
-
     beforeEach(module(function($provide){
       $provide.value('StorageService', mockStorageService);
     }));
@@ -19,11 +18,11 @@
           {id: 2957, name: 'widget', price: 32, quantity: 203, color: 'red', discount: 31}
         ];
       };
-      mockStorageService.add = function(argOne) {
-        mockStorageService.add.numTimesCalled++;
-        mockStorageService.add.LastArgument = argOne;
+      mockStorageService.saveNewItem = function(argOne) {
+        mockStorageService.saveNewItem.numTimesCalled++;
+        mockStorageService.saveNewItem.LastArgument = argOne;
       };
-      mockStorageService.add.numTimesCalled = 0;
+      mockStorageService.saveNewItem.numTimesCalled = 0;
       ItemController = $controller('ItemController');
     }));
 
@@ -34,14 +33,14 @@
       expect(ItemController.allData.length).to.equal(1);
     });
 
-    // Test for service to add a new item...test not working. Says undefined not a constructor function
-    // it('should use the service to add a new item', function(){
-    //   ItemController.newItem.foo= 'bar';
-    //   var theItem = {};
-    //   ItemController.addNewItem(theItem);
-    //   expect(ItemController.newItem.foo).to.be.undefined;
-    //   expect(mockStorageService.add.numTimesCalled).to.equal(1);
-    // });
+    it('should use the service to add a new item', function(){
+      var newItemAdded = {};
+      ItemController.newItem.umbrella = 'accessory';
+
+      ItemController.addNewItem(newItemAdded);
+      expect(ItemController.newItem.umbrella).to.equal('accessory');
+      expect(mockStorageService.saveNewItem.numTimesCalled).to.equal(1);
+    });
 
     it('should calculate the total price of an item with tax and discount included', function(){
       var price = ItemController.getPrice({
@@ -62,11 +61,6 @@
       });
       expect(newPrice).to.equal(correctPrice * 1.5);
     });
-
-    // it('should be able to handle empty args to getPrice', function() {
-    //   ItemController.getPrice();
-    //   // what's gonna happen?
-    // });
 
     it('shold sort the order of the data by category', function() {
       ItemController.changeOrder('name');
